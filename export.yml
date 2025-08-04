@@ -4,5 +4,5 @@
 
   tasks:
   - name: Export workflow
-    awx.awx.export:
+    ansible.controller.export:
       job_templates: 'all'
