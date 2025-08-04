@@ -1,0 +1,8 @@
+---
+- name: export defintions
+  hosts: localhost
+
+  tasks:
+  - name: Export workflow
+    awx.awx.export:
+      all: 'true'
