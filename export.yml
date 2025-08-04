@@ -5,4 +5,4 @@
   tasks:
   - name: Export workflow
     awx.awx.export:
-      all: 'true'
+      job_templates: 'all'
