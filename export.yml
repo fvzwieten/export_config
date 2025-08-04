@@ -1,14 +1,13 @@
 ---
 - name: export defintions
   hosts: localhost
-
-  vars:
-    controller_username: "{{ vault_controller_username | default(lookup('env', 'CONTROLLER_USERNAME')) }}"
-    controller_password: "{{ vault_controller_password | default(lookup('env', 'CONTROLLER_PASSWORD')) }}"
-    controller_hostname: "{{ vault_controller_hostname | default(lookup('env', 'CONTROLLER_HOST')) }}"
-    controller_validate_certs: "{{ vault_controller_validate_certs | default(lookup('env', 'CONTROLLER_VERIFY_SSL')) }}"
-
+  
   tasks:
-  - name: Export workflow
+  - name: Export workflow job template
     ansible.controller.export:
-      job_templates: 'all'
+      workflow_job_templates: 'all'
+        register: export_results
+
+  - name: show result
+    debug:
+      var: export_results
